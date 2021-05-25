@@ -39,7 +39,7 @@ namespace QLNV_De5_n17dccn048
 
         private void main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLNVDataSet.NHANVIEN' table. You can move, or remove it, as needed.
+            // loads data into the 'qLNVDataSet.NHANVIEN' table
             OnNewHome += new NewHome(Form1_OnNewHome);
             LoadData();
         }
@@ -68,7 +68,6 @@ namespace QLNV_De5_n17dccn048
 
             if (e.Type == SqlNotificationType.Change)
             {
-                // your code
                 rtBox.AppendText("#" + count + "\n");
                 rtBox.AppendText("Info: " + e.Info.ToString() + "\n");
                 rtBox.AppendText("Source: " + e.Source.ToString() + "\n");
@@ -81,7 +80,7 @@ namespace QLNV_De5_n17dccn048
         public void Form1_OnNewHome()
         {
             ISynchronizeInvoke i = (ISynchronizeInvoke)this;
-            if (i.InvokeRequired)//tab
+            if (i.InvokeRequired)
             {
                 NewHome dd = new NewHome(Form1_OnNewHome);
                 i.BeginInvoke(dd, null);
@@ -107,45 +106,6 @@ namespace QLNV_De5_n17dccn048
 
             dt.Load(cmd.ExecuteReader(CommandBehavior.CloseConnection));
             dataGridView1.DataSource = dt;
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.nHANVIENTableAdapter.Fill(this.qLNVDataSet.NHANVIEN);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillByToolStripButton1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.nHANVIENTableAdapter.Fill(this.qLNVDataSet.NHANVIEN);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void fillByToolStripButton_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                this.nHANVIENTableAdapter.Fill(this.qLNVDataSet.NHANVIEN);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
         }
 
     }

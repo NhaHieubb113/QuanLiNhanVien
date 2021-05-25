@@ -17,7 +17,7 @@ namespace QLNV_De5_n17dccn048
         public delegate void NewHome();
         public event NewHome OnNewHome;
         String conn = "Data Source=NGUYENHIEU;Initial Catalog=QLNV;Persist Security Info=True;User ID=sa;Password=123";
-        public static SqlConnection con = null;
+        SqlConnection con = null;
         
 
         public FormUpdate()
@@ -63,11 +63,9 @@ namespace QLNV_De5_n17dccn048
 
         private void FormUpdate_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLNVDataSet.NHANVIEN' table. You can move, or remove it, as needed.
-            //this.nHANVIENTableAdapter.Fill(this.qLNVDataSet.NHANVIEN);
-            OnNewHome += new NewHome(Form1_OnNewHome);//tab
-            // TODO: This line of code loads data into the 'qLNVDataSet.NHANVIEN' table. You can move, or remove it, as needed.
+            OnNewHome += new NewHome(Form1_OnNewHome);
             LoadData();
+
         }
 
         public void reLoadData()
@@ -81,31 +79,18 @@ namespace QLNV_De5_n17dccn048
         {
             SqlConnection conn = null;
             SqlDataReader rdr = null;
-            // typically obtained from user
-            // input, but we take a short cut
-            //string custId = "FURIB";
-
-            Console.WriteLine("\nCustomer Order History:\n");
-
+           
             try
             {
-                // create and open a connection object
                 conn = new
                     SqlConnection("Data Source=NGUYENHIEU;Initial Catalog=QLNV;Persist Security Info=True;User ID=sa;Password=123");
                 conn.Open();
 
-                // 1. create a command object identifying
-                // the stored procedure
                 SqlCommand cmd = new SqlCommand(
                     @"Sp_ThemNV", conn);
 
-                // 2. set the command object so it knows
-                // to execute a stored procedure
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // 3. add parameter to command, which
-                // will be passed to the stored procedure
-                //cmd.Parameters.Add(new SqlParameter("@MANV", MANV));
                 cmd.Parameters.Add(new SqlParameter("@HO", HO));
                 cmd.Parameters.Add(new SqlParameter("@TEN", TEN));
                 cmd.Parameters.Add(new SqlParameter("@PHAI", PHAI));
@@ -113,6 +98,7 @@ namespace QLNV_De5_n17dccn048
                 cmd.Parameters.Add(new SqlParameter("@NGAYSINH", NGAYSINH));
                 cmd.Parameters.Add(new SqlParameter("@LUONG", LUONG));
                 cmd.Parameters.Add(new SqlParameter("@MACN", "TPHCM"));
+
                 // execute the command
                 rdr = cmd.ExecuteReader();
                 reLoadData();
@@ -143,23 +129,17 @@ namespace QLNV_De5_n17dccn048
 
             try
             {
-                // create and open a connection object
                 conn = new
                     SqlConnection("Data Source=NGUYENHIEU;Initial Catalog=QLNV;Persist Security Info=True;User ID=sa;Password=123");
                 conn.Open();
 
-                // 1. create a command object identifying
-                // the stored procedure
                 SqlCommand cmd = new SqlCommand(
                     @"Sp_DeleteNV", conn);
 
-                // 2. set the command object so it knows
-                // to execute a stored procedure
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // 3. add parameter to command, which
-                // will be passed to the stored procedure
                 cmd.Parameters.Add(new SqlParameter("@MANV", MANV));
+
                 // execute the command
                 rdr = cmd.ExecuteReader();
                 reLoadData();
@@ -187,22 +167,15 @@ namespace QLNV_De5_n17dccn048
 
             try
             {
-                // create and open a connection object
                 conn = new
                     SqlConnection("Data Source=NGUYENHIEU;Initial Catalog=QLNV;Persist Security Info=True;User ID=sa;Password=123");
                 conn.Open();
 
-                // 1. create a command object identifying
-                // the stored procedure
                 SqlCommand cmd = new SqlCommand(
                     @"Sp_UpdateNV", conn);
 
-                // 2. set the command object so it knows
-                // to execute a stored procedure
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                // 3. add parameter to command, which
-                // will be passed to the stored procedure
                 cmd.Parameters.Add(new SqlParameter("@MANV", MANV));
                 cmd.Parameters.Add(new SqlParameter("@HO", HO));
                 cmd.Parameters.Add(new SqlParameter("@TEN", TEN));
@@ -211,6 +184,7 @@ namespace QLNV_De5_n17dccn048
                 cmd.Parameters.Add(new SqlParameter("@NGAYSINH", NGAYSINH));
                 cmd.Parameters.Add(new SqlParameter("@LUONG", LUONG));
                 cmd.Parameters.Add(new SqlParameter("@MACN", "TPHCM"));
+
                 // execute the command
                 rdr = cmd.ExecuteReader();
                 reLoadData();
@@ -231,7 +205,6 @@ namespace QLNV_De5_n17dccn048
         }
 
         // SQL Dependency
-
         public void de_OnChange(object sender, SqlNotificationEventArgs e)
         {
             SqlDependency de = sender as SqlDependency;
@@ -245,7 +218,7 @@ namespace QLNV_De5_n17dccn048
         public void Form1_OnNewHome()
         {
             ISynchronizeInvoke i = (ISynchronizeInvoke)this;
-            if (i.InvokeRequired)//tab
+            if (i.InvokeRequired)
             {
                 NewHome dd = new NewHome(Form1_OnNewHome);
                 i.BeginInvoke(dd, null);
@@ -254,7 +227,6 @@ namespace QLNV_De5_n17dccn048
             LoadData();
         }
 
-        //Ham load data
         void LoadData()
         {
             DataTable dt = new DataTable();
@@ -281,6 +253,7 @@ namespace QLNV_De5_n17dccn048
 
         }
 
+        
         private bool validate()
         {
             if (tbHo.Text == string.Empty)
@@ -318,13 +291,7 @@ namespace QLNV_De5_n17dccn048
                 MessageBox.Show("Nhập Lương!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
-            /*//Trường hợp THÊM NV có MaNV bị trùng
-            if (tbMaNV.Text != "")
-            {
-                MessageBox.Show("Mã nhân viên này đã tồn tại, bạn không được thêm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }*/
-
+           
             return true;
         }
 
@@ -375,54 +342,12 @@ namespace QLNV_De5_n17dccn048
             }
         }
 
+
+
         private void tbMaNV_TextChanged(object sender, EventArgs e)
         {
             this.tbMaNV.ReadOnly = true;
         }
 
-        private void timKiem( int MaTam)
-        {
-            
-            DataTable dt = new DataTable();
-            if (con.State == ConnectionState.Closed)
-            {
-                con.Open();
-            }
-
-            SqlCommand cmd = new SqlCommand(@"Sp_TimKiem", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Notification = null;
-            cmd.Parameters.Add(new SqlParameter("MaNV", SqlDbType.Int)).Value = MaTam;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            
-            dt.Load(cmd.ExecuteReader(CommandBehavior.CloseConnection));
-            dataGridView1.DataSource = dt;
-            this.btnExit.PerformClick();
-            
-        }
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            if (tbTimMANV.Text.Trim() == "")
-            {
-                MessageBox.Show("Hãy nhập mã nhân viên muốn tìm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                timKiem(int.Parse(tbTimMANV.Text.Trim()));
-            }
-        }
-
-        private void button_HuyTim_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void tbTimMANV_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-                e.Handled = true;
-        }
     }
 }

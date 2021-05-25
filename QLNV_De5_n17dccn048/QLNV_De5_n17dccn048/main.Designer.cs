@@ -30,15 +30,9 @@ namespace QLNV_De5_n17dccn048
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nHANVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLNVDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLNVDataSet = new QLNV_De5_n17dccn048.QLNVDataSet();
-            this.rtBox = new System.Windows.Forms.RichTextBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.nHANVIENTableAdapter = new QLNV_De5_n17dccn048.QLNVDataSetTableAdapters.NHANVIENTableAdapter();
-            this.lbNotification = new System.Windows.Forms.Label();
             this.mANVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +42,15 @@ namespace QLNV_De5_n17dccn048
             this.lUONGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mACNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tRANGTHAIDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nHANVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLNVDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLNVDataSet = new QLNV_De5_n17dccn048.QLNVDataSet();
+            this.rtBox = new System.Windows.Forms.RichTextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.nHANVIENTableAdapter = new QLNV_De5_n17dccn048.QLNVDataSetTableAdapters.NHANVIENTableAdapter();
+            this.lbNotification = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHANVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLNVDataSetBindingSource)).BeginInit();
@@ -69,68 +72,27 @@ namespace QLNV_De5_n17dccn048
             this.mACNDataGridViewTextBoxColumn,
             this.tRANGTHAIDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.nHANVIENBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(37, 155);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Location = new System.Drawing.Point(37, 175);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(842, 188);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Size = new System.Drawing.Size(842, 197);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // nHANVIENBindingSource
-            // 
-            this.nHANVIENBindingSource.DataMember = "NHANVIEN";
-            this.nHANVIENBindingSource.DataSource = this.qLNVDataSetBindingSource;
-            // 
-            // qLNVDataSetBindingSource
-            // 
-            this.qLNVDataSetBindingSource.DataSource = this.qLNVDataSet;
-            this.qLNVDataSetBindingSource.Position = 0;
-            // 
-            // qLNVDataSet
-            // 
-            this.qLNVDataSet.DataSetName = "QLNVDataSet";
-            this.qLNVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rtBox
-            // 
-            this.rtBox.Location = new System.Drawing.Point(656, 24);
-            this.rtBox.Name = "rtBox";
-            this.rtBox.Size = new System.Drawing.Size(223, 96);
-            this.rtBox.TabIndex = 1;
-            this.rtBox.Text = "";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.btnUpdate.Location = new System.Drawing.Point(37, 24);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 29);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.btnExit.Location = new System.Drawing.Point(37, 76);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 30);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // nHANVIENTableAdapter
-            // 
-            this.nHANVIENTableAdapter.ClearBeforeFill = true;
-            // 
-            // lbNotification
-            // 
-            this.lbNotification.AutoSize = true;
-            this.lbNotification.Location = new System.Drawing.Point(376, 40);
-            this.lbNotification.Name = "lbNotification";
-            this.lbNotification.Size = new System.Drawing.Size(0, 13);
-            this.lbNotification.TabIndex = 4;
             // 
             // mANVDataGridViewTextBoxColumn
             // 
@@ -195,11 +157,79 @@ namespace QLNV_De5_n17dccn048
             this.tRANGTHAIDataGridViewCheckBoxColumn.Name = "tRANGTHAIDataGridViewCheckBoxColumn";
             this.tRANGTHAIDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
+            // nHANVIENBindingSource
+            // 
+            this.nHANVIENBindingSource.DataMember = "NHANVIEN";
+            this.nHANVIENBindingSource.DataSource = this.qLNVDataSetBindingSource;
+            // 
+            // qLNVDataSetBindingSource
+            // 
+            this.qLNVDataSetBindingSource.DataSource = this.qLNVDataSet;
+            this.qLNVDataSetBindingSource.Position = 0;
+            // 
+            // qLNVDataSet
+            // 
+            this.qLNVDataSet.DataSetName = "QLNVDataSet";
+            this.qLNVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rtBox
+            // 
+            this.rtBox.Location = new System.Drawing.Point(656, 73);
+            this.rtBox.Name = "rtBox";
+            this.rtBox.Size = new System.Drawing.Size(223, 80);
+            this.rtBox.TabIndex = 1;
+            this.rtBox.Text = "";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.btnUpdate.Location = new System.Drawing.Point(37, 73);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 29);
+            this.btnUpdate.TabIndex = 2;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.btnExit.Location = new System.Drawing.Point(37, 123);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 30);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // nHANVIENTableAdapter
+            // 
+            this.nHANVIENTableAdapter.ClearBeforeFill = true;
+            // 
+            // lbNotification
+            // 
+            this.lbNotification.AutoSize = true;
+            this.lbNotification.Location = new System.Drawing.Point(376, 73);
+            this.lbNotification.Name = "lbNotification";
+            this.lbNotification.Size = new System.Drawing.Size(0, 13);
+            this.lbNotification.TabIndex = 4;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(307, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(227, 24);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "QUẢN LÝ NHÂN VIÊN";
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 384);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.lbNotification);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnUpdate);
@@ -237,6 +267,7 @@ namespace QLNV_De5_n17dccn048
         private System.Windows.Forms.DataGridViewTextBoxColumn lUONGDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mACNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn tRANGTHAIDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Label label9;
     }
 }
 
